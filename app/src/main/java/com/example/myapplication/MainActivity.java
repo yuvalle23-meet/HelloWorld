@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 if (Email.getText().toString().contains("@") && Email.getText().toString().contains(".com") && Password.getText().toString().length() == 6)
-                SignInText.setText(Email.getText().toString());
+                    SignInText.setText(Email.getText().toString());
             }
         });
         signup.setOnClickListener(new View.OnClickListener(){
