@@ -1,12 +1,14 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private TextView SignInText;
@@ -26,14 +28,15 @@ public class MainActivity extends AppCompatActivity {
         signup = findViewById(R.id.button2);
         signin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                if (Email.getText().toString().contains("@") && Email.getText().toString().contains(".com") && Password.getText().toString().length() == 6)
-                    SignInText.setText(Email.getText().toString());
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                if (Email.getText().toString().contains("@") && Email.getText().toString().contains(".com") && Password.getText().toString().length() >= 6)
+                    startActivity(intent);
             }
         });
         signup.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Toast toast = Toast.makeText(MainActivity.this, "Signup is under construction", Toast.LENGTH_LONG);
-                toast.show();
+                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+                startActivity(intent);
             }
         });
     }
