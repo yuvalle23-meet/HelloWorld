@@ -11,7 +11,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Password (More than 6 characters)"
         android:inputType="textPassword"
         android:translationY="10px" />
 
@@ -50,6 +50,7 @@
         android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/button"
         android:text="Submit"
         android:translationY="60px" />
 
