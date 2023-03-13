@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,19 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-
 public class MainActivity extends AppCompatActivity {
     private TextView SignInText;
     private EditText Email;
     private EditText Password;
     private Button signin;
     private Button signup;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 if (Email.getText().toString().contains("@") && Email.getText().toString().contains(".com") && Password.getText().toString().length() >= 6){
                     intent.putExtra("email",Email.getText().toString());
                     startActivity(intent);
-
                 }
                 else{
                     Toast toast = Toast.makeText(getApplicationContext(), "Invalid Email or Password", Toast.LENGTH_SHORT);
@@ -55,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+<<<<<<< HEAD
     public void singIn (String email, String password){
         {
             mAuth.signInWithEmailAndPassword(email, password)
@@ -76,3 +68,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+=======
+}
+>>>>>>> parent of e86d325 (last lab done.)

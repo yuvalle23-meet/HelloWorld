@@ -11,12 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
@@ -24,9 +18,6 @@ public class HomeActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayList<User> user;
     private ArrayAdapter<User> arrayAdapter;
-    private FirebaseDatabase database;
-    private ArrayList<User> users;
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,44 +27,28 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        database = FirebaseDatabase.getInstance();
         setContentView(R.layout.activity_home);
         welcome = findViewById(R.id.welcome);
         Intent intent = getIntent();
-//        String email = intent.getStringExtra("email");
-//        welcome.setText(welcome.getText().toString()+' '+email.toString());
+        String email = intent.getStringExtra("email");
+        welcome.setText(welcome.getText().toString()+' '+email.toString());
         listView = findViewById(R.id.user_list);
-
-        database.getReference("Users").addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                users = new ArrayList<User>();
-                for (DataSnapshot data:snapshot.getChildren()){
-                    User user = data.getValue(User.class);
-                    users.add(user);
-                }
-                arrayAdapter = new UserArrayAdapter(HomeActivity.this, R.layout.custom_row, users);
-                listView.setAdapter(arrayAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
+        ArrayList<User> users = new ArrayList<User>();
+        users.add(new User("Antony","antony.saleh2017@gnnail.com","123456",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Keeshond_Sibirian_Husky_crossbreed_puppy.jpg/1200px-Keeshond_Sibirian_Husky_crossbreed_puppy.jpg"));
+        users.add(new User("Tareq","tareq.othmam17@gnnail.com","qwerty",
+        "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg"));
+        arrayAdapter = new UserArrayAdapter(this, R.layout.custom_row, users);
+        listView.setAdapter(arrayAdapter);
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         int id = item.getItemId();
         if (id == R.id.signout){
-            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
         return true;
     };
-
 
 }
