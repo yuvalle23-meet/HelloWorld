@@ -5,16 +5,10 @@
     android:id="@+id/SignUpButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:orientation="horizontal"
-    android:background="@color/cardview_dark_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_margin="100px"
     tools:context=".MainActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_margin="100px">
 
 
     <TextView
@@ -22,19 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="36dp"
-        android:textColor="@color/white"
-        android:text="Welcome to YUVALNET!" />
+        android:text="Welcome to our app!" />
 
     <ListView
         android:id="@+id/user_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         />
-
-    </LinearLayout>
 
 
 </LinearLayout>
