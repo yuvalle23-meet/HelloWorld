@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void singIn (String email, String password){
         {
             mAuth.signInWithEmailAndPassword(email, password)
@@ -68,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+=======
+}
+>>>>>>> parent of e86d325 (last lab done.)
 =======
 }
 >>>>>>> parent of e86d325 (last lab done.)
